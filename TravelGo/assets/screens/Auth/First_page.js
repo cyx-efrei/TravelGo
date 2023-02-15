@@ -69,9 +69,12 @@ const styles = StyleSheet.create({
     backgroundColor: 'red'
   },
   introTexte: {
-    top: 10,
-    fontSize: 18,
+    top: '10%',
+    marginBottom: '5%',
+    
+    fontSize: 16,
     fontWeight: '400',
+    flex: 1.3,
   },
   button: {
     height: '45%',
@@ -80,6 +83,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 20,
+    flex: 1,
   },
   buttonText: {
     color: 'white',
