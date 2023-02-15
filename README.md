@@ -16,4 +16,4 @@ Vous y êtes !
 
 # Screenshots : 
 
-![Simulator Screen Shot - iPhone 13 Pro Max - 2023-02-15 at 17 14 01](https://user-images.githubusercontent.com/65498535/219086020-9e49263a-9a29-44f6-ac62-87502bd9a83a.png)
+<img src="https://user-images.githubusercontent.com/65498535/219086020-9e49263a-9a29-44f6-ac62-87502bd9a83a.png" width="100">
