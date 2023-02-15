@@ -9,11 +9,11 @@ Application permettant de planifier des séjours à l'avance.
 2. Scanner le qr suivant :
 
 
-![image](https://user-images.githubusercontent.com/65498535/219085772-41f3dcaa-22e3-4595-974d-d0b48c9dd71e.png)
+<img src="https://user-images.githubusercontent.com/65498535/219085772-41f3dcaa-22e3-4595-974d-d0b48c9dd71e.png" width="300">
 
 
 Vous y êtes ! 
 
 # Screenshots : 
 
-<img src="https://user-images.githubusercontent.com/65498535/219086020-9e49263a-9a29-44f6-ac62-87502bd9a83a.png" width="100">
+<img src="https://user-images.githubusercontent.com/65498535/219086020-9e49263a-9a29-44f6-ac62-87502bd9a83a.png" width="300">
