@@ -1,16 +1,25 @@
+import React, { useContext } from 'react'
+import { AuthContext } from '../../../context/AuthContext';
+
 import { StyleSheet, Text, View, Image, TouchableOpacity, PixelRatio } from 'react-native'
-import React from 'react'
 
 const baseFontSize = 17; // Taille par défault de la police des textes
 
 export default function First_page({navigation}) {
 
+  const {firstLog} = useContext(AuthContext)
+
+  const firstLogged = () => {
+    console.log("ok")
+    firstLog();
+  }
 
 
   return (
+    
     <View style={styles.main_container}>
         <Image 
-        source={require('../../img//Auth_part/firstLandscape.jpeg')}
+        source={require('../../img/Auth_part/firstLandscape.jpeg')}
         style={styles.imageBackground}
         />
       <View style={styles.secondContainer}>
@@ -24,7 +33,7 @@ export default function First_page({navigation}) {
             <TouchableOpacity 
             style={styles.button} 
             activeOpacity={0.6}
-            onPress={() => console.log("vamos")}>
+            onPress={firstLogged}>
               <Text style={styles.buttonText}>Get Started</Text>
             </TouchableOpacity>
         </View>
