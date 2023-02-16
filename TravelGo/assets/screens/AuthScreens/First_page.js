@@ -8,12 +8,6 @@ export default function First_page({navigation}) {
 
   const {firstLog} = useContext(AuthContext)
 
-  const firstLogged = () => {
-    console.log("ok")
-    firstLog();
-  }
-
-
   return (
     
     <View style={styles.main_container}>
@@ -41,7 +35,7 @@ export default function First_page({navigation}) {
             <TouchableOpacity 
             style={styles.button} 
             activeOpacity={0.6}
-            onPress={firstLogged}>
+            onPress={() => {firstLog()}}>
               <Text style={styles.buttonText}>Get Started</Text>
             </TouchableOpacity>
         </View>
