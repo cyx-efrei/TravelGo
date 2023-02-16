@@ -1,6 +1,5 @@
 import React, { useContext } from 'react'
 import { AuthContext } from '../../../context/AuthContext';
-
 import { StyleSheet, Text, View, Image, TouchableOpacity, PixelRatio } from 'react-native'
 
 const baseFontSize = 17; // Taille par défault de la police des textes
@@ -18,16 +17,25 @@ export default function First_page({navigation}) {
   return (
     
     <View style={styles.main_container}>
+
+        {/*           BACKGROUND PART IMAGE           */}
+
         <Image 
         source={require('../../img/Auth_part/firstLandscape.jpeg')}
         style={styles.imageBackground}
         />
+
+        {/*           TOP PART TITLES           */}
+
       <View style={styles.secondContainer}>
         <View>
           <Text style={styles.whiteTitle}>Explore.</Text>
           <Text style={styles.blackTitle}>Travel.</Text>
           <Text style={styles.blackTitle}>Learn.</Text>
         </View>
+        
+        {/*           BOTOTM PART BUTTON + TEXT           */}
+
         <View style={styles.bottomContainer}>
             <Text style={styles.introTexte}>Préparez rapidement et facilement vos prochains voyages avec TravelGo !</Text>
             <TouchableOpacity 

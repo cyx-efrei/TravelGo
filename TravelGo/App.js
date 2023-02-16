@@ -1,7 +1,6 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet } from 'react-native';
 
-import {AuthProvider, AuthContext} from './context/AuthContext';
+import {AuthProvider} from './context/AuthContext';
 
 import AppNav from './assets/navigation/AppNav';
 

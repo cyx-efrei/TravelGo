@@ -9,11 +9,27 @@ export const AuthProvider = ({children}) => {
     const [FirstTime, setFirstTime] = useState(false);
     
     const firstLog = () => {
-        setFirstTime(true);
+        setFirstTime(true)
+        AsyncStorage.setItem('firstOpen', true);
     }
 
+    const OpenApp = async () => {
+        try{
+            setIsLoading(true);
+            let openApp = await  AsyncStorage.getItem('firstOpen');
+            setFirstTime(openApp);
+            setIsLoading(false);
+        }catch(err){
+            console.log('There was an error : ', err.response);
+        }
+    }
+
+    useEffect(() => {
+        OpenApp();
+    }, []);
+
   return (
-    <AuthContext.Provider value={{ FirstTime, firstLog }}>
+    <AuthContext.Provider value={{ isLoading, FirstTime, setFirstTime, firstLog }}>
         {children}
     </AuthContext.Provider>
   )
