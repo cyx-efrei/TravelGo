@@ -5,22 +5,27 @@ export const AuthContext = createContext();
 
 export const AuthProvider = ({children}) => {
 
-    const [isLoading, setIsLoading] = useState(true);
+    const [isLoading, setIsLoading] = useState(false);
     const [FirstTime, setFirstTime] = useState(false);
     
     //Focntion que l'on appellera dans la première page pour prévenir qu'on entre pour la première fois dans l'app
-    const firstLog = () => {
-        setFirstTime(true)
-        AsyncStorage.setItem('firstOpen', true);
+    const firstLog = async () => {
+        setIsLoading(true);
+        setFirstTime('true')
+        AsyncStorage.setItem('openFirst', 'true');
+        console.log("send " + await  AsyncStorage.getItem('openFirst'))
+        setIsLoading(false);
     }
 
     //Fonction qui vérifie à chaque fois si le joueur entre dans l'application pour la première fois ou non
     const OpenApp = async () => {
         try{
             setIsLoading(true);
-            let openApp = await  AsyncStorage.getItem('firstOpen');
+            let openApp = await  AsyncStorage.getItem('openFirst');
+            console.log("ok " + openApp);
             setFirstTime(openApp);
             setIsLoading(false);
+            console.log("ok2 ", openApp, FirstTime);
         }catch(err){
             console.log('There was an error : ', err.response);
         }

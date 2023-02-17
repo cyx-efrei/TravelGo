@@ -24,7 +24,7 @@ const AppNav = () => {
   return (
     <NavigationContainer>
         {/* La prochaine ligne vérifie à l'aide d'une focntion si l'application est ouverte pour la première fois ou non */}
-        {FirstTime === false ? <First_page/> : <AppStack/>}
+        {FirstTime !== 'true' ? <First_page/> : <AppStack/>}
     </NavigationContainer> 
   )
 }

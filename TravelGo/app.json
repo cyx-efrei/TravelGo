@@ -2,6 +2,7 @@
   "expo": {
     "name": "TravelGo",
     "slug": "TravelGo",
+    "owner": "travelgo",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -9,8 +10,7 @@
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff",
-      "owner": "travelgo"
+      "backgroundColor": "#ffffff"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -30,6 +30,6 @@
     "web": {
       "favicon": "./assets/favicon.png"
     },
-    "description": "adding in the repo"
+    "description": "fix bugs"
   }
 }
