@@ -6,7 +6,7 @@ const HomeScreen = () => {
     <ScrollView stye={styles.mainContainer}>
       <View style={styles.mainContainer}>
         <View style={styles.TitleContainer}>
-          <Text style={styles.TitleScreen}>Discover</Text>
+          <Text style={styles.TitleScreen}>Explore</Text>
         </View>
       </View>
     </ScrollView>

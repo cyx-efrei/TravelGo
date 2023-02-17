@@ -34,17 +34,17 @@ const styles = StyleSheet.create({
   },
   searchBar: {
     position: 'absolute',
-    top: PixelRatio.getPixelSizeForLayoutSize(20),
+    top: PixelRatio.getPixelSizeForLayoutSize(22),
     width: '80%',
     height: PixelRatio.getPixelSizeForLayoutSize(20),
     paddingHorizontal: 20,
-    borderColor: '#ccc',
-    borderWidth: 2,
+    borderColor: '#C7D3DD',
+    borderWidth: 1.8,
     zIndex: 10,
     backgroundColor: 'white',
-    color: 'green',
+    color: '#37393A',
     borderRadius: 20,
-    opacity: 0.9
-
+    opacity: 0.95,
+    fontSize: 16,
   }
 })
