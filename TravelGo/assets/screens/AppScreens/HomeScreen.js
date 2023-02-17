@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, SafeAreaView, ScrollView } from 'react-native'
+import { StyleSheet, Text, View, PixelRatio, ScrollView,  } from 'react-native'
 import React from 'react'
 
 const HomeScreen = () => {
@@ -19,12 +19,12 @@ const styles = StyleSheet.create({
   mainContainer: {
     alignItems: 'center',
     marginHorizontal: 20,
-    marginVertical: 50
+    marginVertical: PixelRatio.getPixelSizeForLayoutSize(15),
   },
   TitleContainer: {
     height: '100%',
     width: '100%',
-    paddingVertical: 10,
+    paddingVertical: 10 * PixelRatio.getFontScale(),
   },
   TitleScreen: {
     fontSize: 35,

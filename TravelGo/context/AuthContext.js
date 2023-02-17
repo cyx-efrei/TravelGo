@@ -22,10 +22,8 @@ export const AuthProvider = ({children}) => {
         try{
             setIsLoading(true);
             let openApp = await  AsyncStorage.getItem('openFirst');
-            console.log("ok " + openApp);
             setFirstTime(openApp);
             setIsLoading(false);
-            console.log("ok2 ", openApp, FirstTime);
         }catch(err){
             console.log('There was an error : ', err.response);
         }

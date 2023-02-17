@@ -1,12 +1,15 @@
 import React, { useContext } from 'react'
 import { AuthContext } from '../../../context/AuthContext';
 import { StyleSheet, Text, View, Image, TouchableOpacity, PixelRatio } from 'react-native'
+import { getFontSize } from '../../config';
 
-const baseFontSize = 17; // Taille par défault de la police des textes
+// Taille par défault de la police des textes
 
 export default function First_page({navigation}) {
 
   const {firstLog} = useContext(AuthContext)
+
+  
 
   return (
     
@@ -88,9 +91,8 @@ const styles = StyleSheet.create({
     backgroundColor: 'red'
   },
   introTexte: {
-    top: '10%',
-    marginBottom: '5%',
-    fontSize: baseFontSize * PixelRatio.getFontScale(),
+    top: '8%',
+    fontSize: getFontSize(18),
     fontWeight: '400',
     flex: 1.3,
   },
