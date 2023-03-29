@@ -1,8 +1,7 @@
 import React, {useContext} from 'react'
-import { View, Image } from 'react-native';
+import { Text } from 'react-native';
 
 import First_page from '../screens/AuthScreens/First_page';
-import ThreeDots from '../img/Loaders/three-dots';
 import AppStack from './AppStack';
 
 import { AuthContext } from '../../context/AuthContext';
@@ -16,7 +15,7 @@ const AppNav = () => {
   //On check si c'est entrain de charger pour éviter d'afficher qlqch de moche
   if(isLoading){
     return(
-      <ThreeDots/>
+      <Text>LOADING</Text>
     );
   }
 

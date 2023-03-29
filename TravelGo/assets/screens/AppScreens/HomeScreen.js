@@ -1,15 +1,34 @@
-import { StyleSheet, Text, View, PixelRatio, ScrollView,  } from 'react-native'
+import { StyleSheet, Text, View, PixelRatio, ScrollView, SafeAreaView, Image } from 'react-native'
 import React from 'react'
+import { Dimensions } from 'react-native';
+
+import DestinationSearch from '../Compornents/DestinationSearch';
+import * as colors from '../../src/color.js'
+
+const w_screen = Dimensions.get('window').width;
+const h_screen = Dimensions.get('window').height;
+
 
 const HomeScreen = () => {
   return (
-    <ScrollView stye={styles.mainContainer}>
+    // TO CHANGE TO SCOLL VIEW LATER MAYBE
+    <View style={styles.scrollView}>
       <View style={styles.mainContainer}>
-        <View style={styles.TitleContainer}>
-          <Text style={styles.TitleScreen}>Explore</Text>
+        <View style={styles.topBack}>
+          <Image source={require('../../img/Home_part/world_dott.png')} style={styles.map_dot} />
+        </View>
+        <View style={styles.topBar}>
+          <Text style={styles.welcomeText}>Welcome Back !</Text>
+        </View>
+        <View style={styles.searchBar}>
+          <DestinationSearch/>
+        </View>
+        <View style={styles.lastBar}>
+          <Text style={styles.ticketTitle}>Last Search</Text>
+          <View style={styles.ticketPad}></View>
         </View>
       </View>
-    </ScrollView>
+    </View>
   )
 }
 
@@ -17,17 +36,61 @@ export default HomeScreen
 
 const styles = StyleSheet.create({
   mainContainer: {
+    flex: 1,
+  },
+  scrollView: {
+    backgroundColor: '#ECF0FD',
+    // marginHorizontal: 20,
+  },
+  topBack: {
+    paddingTop: 20,
+    backgroundColor: '#07184B',
+    height: h_screen/3.3,
+    borderBottomEndRadius: 40,
+    borderBottomStartRadius: 40,
     alignItems: 'center',
-    marginHorizontal: 20,
-    marginVertical: PixelRatio.getPixelSizeForLayoutSize(15),
+    justifyContent: "flex-end",
   },
-  TitleContainer: {
-    height: '100%',
+  map_dot:{
     width: '100%',
-    paddingVertical: 10 * PixelRatio.getFontScale(),
+    height: '100%'
   },
-  TitleScreen: {
-    fontSize: 35,
-    fontWeight: '600'
+  topBar: {
+    position: 'absolute',
+    left: w_screen/10,
+    top : h_screen/16,
+  },
+  welcomeText: {
+    fontSize: 20,
+    color: "white",
+    top : 5
+  },
+  searchBar: {
+    height: h_screen/2.1,
+    width: w_screen/1.15,
+    backgroundColor: "white",
+    position: 'absolute',
+    zIndex: 300,
+    top : h_screen/7,
+    alignSelf: 'center',
+    borderRadius: 20
+  },
+  ///
+  lastBar: {
+    //backgroundColor: 'red',
+    top : h_screen/3,
+    height: h_screen/4,
+    width: "90%",
+    alignSelf: 'center',
+  },
+  ticketTitle: {
+    marginLeft: 5,
+    color: colors.grey
+  },
+  ticketPad: {
+    backgroundColor: "white",
+    height: '90%',
+    top : 5,
+    borderRadius: 30
   }
 })
