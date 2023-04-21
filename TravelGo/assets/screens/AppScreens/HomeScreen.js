@@ -1,8 +1,7 @@
-import { StyleSheet, Text, View, PixelRatio, ScrollView, SafeAreaView, Image } from 'react-native'
+import { StyleSheet, Text, View, PixelRatio, ScrollView, SafeAreaView, Image, Dimensions } from 'react-native'
 import React from 'react'
-import { Dimensions } from 'react-native';
 
-import DestinationSearch from '../Compornents/DestinationSearch';
+import DestinationSearch from '../Compornents/HomeScreenComponents/DestinationSearch';
 import * as colors from '../../src/color.js'
 
 const w_screen = Dimensions.get('window').width;

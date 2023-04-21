@@ -1,10 +1,11 @@
 import { StyleSheet, Text, View, Image, Dimensions, TextInput, TouchableOpacity } from 'react-native'
 import React from 'react'
 
-import * as colors from '../../src/color.js'
+import * as colors from '../../../src/color.js'
 
 // API GOOGLE FOR AUTO COMPLETION
-import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
+import Search_Google_Places from '../Google_api_Components/Search_Google_Places.js';
+import AutocompleteList from '../Autocomplete/AutocompleteList.js';
 
 // TO GET THE SIZE OF EACH PHONE
 const w_screen = Dimensions.get('window').width;
@@ -53,8 +54,6 @@ const Destination = () => {
     setNumberDays("15");
   }
 
- 
-
 
   return (
     <View style={styles.MainContainer}>
@@ -67,6 +66,8 @@ const Destination = () => {
             placeholder="Landing place"
             onChangeText={text => setLanding(text)}
           />
+          {/*<AutocompleteList/>*/}
+          {/*<Search_Google_Places/>*/}
         </View>
 
         {/*SEPARATOR*/}
@@ -151,6 +152,10 @@ const styles = StyleSheet.create({
     height: h_screen/7,
     margin: 15,
     borderColor: colors.grey,
+  },
+  directionColumn: {
+    position: 'relative',
+    left: 25
   },
   inputPlace: {
     flex: 1,
