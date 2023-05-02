@@ -1,4 +1,5 @@
 import React from 'react'
+import { StyleSheet, Text, View, PixelRatio, ScrollView, SafeAreaView, Image, Dimensions } from 'react-native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 //IMPORT OF ICONS
@@ -10,6 +11,7 @@ import HomeScreen from '../screens/AppScreens/HomeScreen';
 import PlanScreen from '../screens/AppScreens/PlanScreen';
 import SearchScreen from '../screens/AppScreens/SearchScreen';
 import SettingScreen from '../screens/AppScreens/SettingScreen';
+import ErrorScreen from '../screens/AppScreens/ErrorScreen';
 
 const AppStack = () => {
 
@@ -18,10 +20,18 @@ const AppStack = () => {
   return (
     // Cette partie correspond à la partie utilisateur "connecté" ou plutôt qui est dans l'application
     <Tab.Navigator 
-      initialRouteName='Home'
-      screenOptions={{ 
-        headerShown: false,
-        tabBarStyle: { height: '10%'},
+        initialRouteName='Home'
+        screenOptions={{ 
+          headerShown: false,
+          tabBarStyle: { 
+            height: '8%',
+            width: '90%', 
+            marginHorizontal: 22, 
+            borderRadius: 20, 
+            paddingTop: 17,
+            bottom: 20,
+            position: 'absolute'
+          },
         tabBarShowLabel: false
       }}>
         
@@ -32,7 +42,7 @@ const AppStack = () => {
           options={{
             tabBarLabel: 'Home',
             tabBarIcon: ({focused}) => (
-              <MaterialCommunityIcons name="home" color={ focused ? ActiveIconColor : InactiveIconColor} size={iconSize} />
+              <MaterialCommunityIcons name="airplane-takeoff" color={ focused ? ActiveIconColor : InactiveIconColor} size={iconSize} />
             ),
           }}/>
 
@@ -43,20 +53,20 @@ const AppStack = () => {
         component={PlanScreen}
         options={{
           tabBarIcon: ({focused}) => (
-            <MaterialCommunityIcons name="ticket" color={ focused ? ActiveIconColor : InactiveIconColor} size={iconSize} />
+            <MaterialCommunityIcons name="earth" color={ focused ? ActiveIconColor : InactiveIconColor} size={iconSize} />
           ),
         }}/>
 
         {/*         SEARCH SCREEN         */}
         
-        <Tab.Screen 
+        {/*<Tab.Screen 
         name="Search" 
         component={SearchScreen}
         options={{
           tabBarIcon: ({focused}) => (
             <MaterialCommunityIcons name="map-search" color={ focused ? ActiveIconColor : InactiveIconColor} size={iconSize} />
           ),
-        }}/>
+        }}/>*/}
 
         {/*         SETTING SCREEN         */}
         
@@ -68,8 +78,18 @@ const AppStack = () => {
             <MaterialCommunityIcons name="cog" color={ focused ? ActiveIconColor : InactiveIconColor} size={iconSize} />
           ),
         }}/>
+        
     </Tab.Navigator>
   )
 }
 
 export default AppStack
+
+
+const styles = StyleSheet.create({
+  bottomMenu: {
+    height: 20,
+    position: 'absolute',
+    bottom: 200
+  }
+})

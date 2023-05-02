@@ -2,13 +2,21 @@ import { StyleSheet, Text, View, PixelRatio, ScrollView, SafeAreaView, Image, Di
 import React from 'react'
 
 import DestinationSearch from '../Compornents/HomeScreenComponents/DestinationSearch';
+import History from '../Compornents/HomeScreenComponents/History';
 import * as colors from '../../src/color.js'
 
 const w_screen = Dimensions.get('window').width;
 const h_screen = Dimensions.get('window').height;
 
 
-const HomeScreen = () => {
+const history = []
+
+const addHistory = (data) => {
+  history.push(data);
+  console.log("we add", history)
+}
+
+const HomeScreen = ({navigation}) => {
   return (
     // TO CHANGE TO SCOLL VIEW LATER MAYBE
     <View style={styles.scrollView}>
@@ -20,11 +28,13 @@ const HomeScreen = () => {
           <Text style={styles.welcomeText}>Welcome Back !</Text>
         </View>
         <View style={styles.searchBar}>
-          <DestinationSearch/>
+          <DestinationSearch navigation={navigation} addHistory={addHistory}/>
         </View>
         <View style={styles.lastBar}>
           <Text style={styles.ticketTitle}>Last Search</Text>
-          <View style={styles.ticketPad}></View>
+          <View style={styles.ticketPad}>
+            <History history={history}/>
+          </View>
         </View>
       </View>
     </View>
@@ -87,7 +97,7 @@ const styles = StyleSheet.create({
     color: colors.grey
   },
   ticketPad: {
-    backgroundColor: "white",
+    backgroundColor: colors.white,
     height: '90%',
     top : 5,
     borderRadius: 30

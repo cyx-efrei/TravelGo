@@ -36,7 +36,7 @@ export const AuthProvider = ({children}) => {
 
   return (
     // Envoie des valeurs globales
-    <AuthContext.Provider value={{ isLoading, FirstTime, setFirstTime, firstLog }}>
+    <AuthContext.Provider value={{ isLoading, setIsLoading, FirstTime, setFirstTime, firstLog }}>
         {children}
     </AuthContext.Provider>
   )

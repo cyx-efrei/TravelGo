@@ -1,11 +1,15 @@
-import { StyleSheet, Text, View, Image, Dimensions, TextInput, TouchableOpacity } from 'react-native'
-import React from 'react'
+import { StyleSheet, Text, View, Alert, Dimensions, TextInput, TouchableOpacity } from 'react-native'
+import React, { useContext } from 'react';
 
 import * as colors from '../../../src/color.js'
 
 // API GOOGLE FOR AUTO COMPLETION
 import Search_Google_Places from '../Google_api_Components/Search_Google_Places.js';
 import AutocompleteList from '../Autocomplete/AutocompleteList.js';
+
+import { RequestTravel } from '../../../../requests/RequestTravel.js';
+
+import { AuthContext } from '../../../../context/AuthContext.js';
 
 // TO GET THE SIZE OF EACH PHONE
 const w_screen = Dimensions.get('window').width;
@@ -15,21 +19,24 @@ const h_screen = Dimensions.get('window').height;
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 
-const Destination = () => {
+
+const Destination = ({navigation, addHistory}) => {
+
+  const { setIsLoading } = useContext(AuthContext);
 
   // DEFINE INPUT VARIABLES
   const [Landing, setLanding] = React.useState('');
   const [TakeOff, setTakeOff] = React.useState('');
   const [numberDays, setNumberDays] = React.useState('');
   const [showBudget, setShowBudget] = React.useState(false);
-  const [includeMinor, setIncludeMinor] = React.useState(false);
+  const [children, setChildren] = React.useState(false);
 
   function handleOnPressBudget(){
     setShowBudget(!showBudget);
   }
 
   function handleOnPressIncludeMinor(){
-    setIncludeMinor(!includeMinor);
+    setChildren(!children);
   }
 
   function changeDestinationField(){
@@ -52,6 +59,57 @@ const Destination = () => {
 
   const handle2Weeks = () => {
     setNumberDays("15");
+  }
+
+
+
+  // création du fichier json
+  let data={}
+
+  function fill_data(){
+    if (Landing.length < 3 || TakeOff.lenght < 3){
+      Alert.alert(
+        'Ooops',
+        'Veuillez entrer un nom de ville correct ..',
+        [
+          {
+            text: 'OK',
+            onPress: () => console.log('OK pressed')
+          }
+        ],
+        { cancelable: false }
+      );
+    } else if (numberDays <= 0){
+      Alert.alert(
+        'Ooops',
+        'Vous voulez voyager moins d\'1 jour ?',
+        [
+          {
+            text: 'OK',
+            onPress: () => console.log('OK pressed')
+          }
+        ],
+        { cancelable: false }
+      );
+    }else {
+      data.arrivee = Landing,
+      data.depart = TakeOff,
+      data.numberDays = numberDays,
+      data.numberDays = numberDays,
+      data.showBudget = showBudget,
+      data.children = children,
+      console.log(data)
+      addHistory(data)
+      RequestTravel({ data, setIsLoading, navigation })
+        .then(response => {
+          console.log(response);
+          // Handle the response data here
+        })
+        .catch(error => {
+          console.log(error);
+          // Handle the error here
+        });
+    }
   }
 
 
@@ -122,7 +180,7 @@ const Destination = () => {
         </TouchableOpacity>
 
         <TouchableOpacity style={
-          includeMinor === true ? [styles.checkPlace, styles.choiceRight, styles.ActiveButton] : [styles.checkPlace, styles.choiceRight]}
+          children === true ? [styles.checkPlace, styles.choiceRight, styles.ActiveButton] : [styles.checkPlace, styles.choiceRight]}
           onPress={handleOnPressIncludeMinor}
           activeOpacity={0}
           >
@@ -131,7 +189,8 @@ const Destination = () => {
         </TouchableOpacity>
       </View>
 
-      <TouchableOpacity style={styles.buttonSearch}>
+      <TouchableOpacity style={styles.buttonSearch}
+        onPress={fill_data}>
           <Icon name="magnify-plus-outline" size={22} color="white"/>
           <Text style={styles.textSearch}>SEARCH</Text>
         </TouchableOpacity>

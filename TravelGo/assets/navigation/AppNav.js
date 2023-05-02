@@ -7,6 +7,9 @@ import AppStack from './AppStack';
 import { AuthContext } from '../../context/AuthContext';
 import { NavigationContainer } from '@react-navigation/native';
 
+
+//import LottieView from 'lottie-react-native';
+
 const AppNav = () => {
 
   //On importe les variables et fonctions globales
@@ -24,6 +27,7 @@ const AppNav = () => {
     <NavigationContainer>
         {/* La prochaine ligne vérifie à l'aide d'une focntion si l'application est ouverte pour la première fois ou non */}
         {FirstTime !== 'true' ? <First_page/> : <AppStack/>}
+        
     </NavigationContainer> 
   )
 }
